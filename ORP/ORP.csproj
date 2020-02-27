@@ -152,7 +152,6 @@
     <Compile Include="Models\Enums\ParcelSizeType.cs" />
     <Compile Include="Models\Enums\ParcelWeightType.cs" />
     <Compile Include="Models\RequestRouteObject.cs" />
-    <Compile Include="Business\Settings.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Connection.cs" />
     <Compile Include="Models\ConnectionData.cs" />

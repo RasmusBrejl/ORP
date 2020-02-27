@@ -27,12 +27,17 @@ namespace ORP.Business.Services
 
 		public ConnectionData GetConnectionData(Parcel parcel, out string errorMessage)
 		{
-			var parcelTypes = parcel.ParcelCategories.Select(c => c.ParcelType).ToList();
-			if (parcelTypes.Contains(ParcelType.LiveAnimals) || parcelTypes.Contains(ParcelType.Recommended))
+			if (parcel.ParcelCategories != null)
 			{
-				errorMessage = Settings.PackageInvalidTypeMessage;
-				return null;
+				var parcelTypes = parcel.ParcelCategories.Select(c => c.ParcelType).ToList();
+				if (parcelTypes.Contains(ParcelType.LiveAnimals) ||
+				                            parcelTypes.Contains(ParcelType.Recommended))
+				{
+					errorMessage = Settings.PackageInvalidTypeMessage;
+					return null;
+				}
 			}
+
 
 			var parcelSizeType = parcel.GetSizeType();
 
@@ -81,12 +86,15 @@ namespace ORP.Business.Services
 			}
 
 			var totalPrice = basePrice;
-			foreach (var parcelCategory in parcel.ParcelCategories)
+			if (parcel.ParcelCategories != null)
 			{
-				totalPrice += basePrice * parcelCategory.PriceModifier;
+				foreach (var parcelCategory in parcel.ParcelCategories)
+				{
+					totalPrice += basePrice * parcelCategory.PriceModifier;
+				}
 			}
-
-			errorMessage = "";
+			
+			errorMessage = string.Empty;
 			return new ConnectionData()
 			{
 				Duration = Settings.FlightDuration,
