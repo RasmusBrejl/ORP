@@ -14,5 +14,7 @@ namespace ORP.Models
         public string Password { get; set; }
 
         public Clearance Clearance { get; set; }
+
+        public List<Order> Orders { get; set; }
     }
 }

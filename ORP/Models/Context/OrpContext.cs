@@ -12,5 +12,17 @@ namespace ORP.Model
         public DbSet<User> Users { get; set; }
 
         public DbSet<Clearance> Clearances { get; set; }
+
+        public DbSet<City> Cities { get; set; }
+
+        public DbSet<Connection> Connections { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<Parcel> Parcels { get; set; }
+
+        public DbSet<ParcelCategory> ParcelCategories { get; set; }
+
+
     }
 }
