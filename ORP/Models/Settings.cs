@@ -2,34 +2,39 @@
 {
     public static class Settings
     {
-	    public static int SmallWidth = 25;
-        public static int SmallHeight = 25;
-        public static int SmallLength = 25;
+	    public const int SmallWidth = 25;
+        public const int SmallHeight = 25;
+        public const int SmallLength = 25;
 
-        public static int MediumWidth = 40;
-        public static int MediumHeight = 40;
-        public static int MediumLength = 40;
+        public const int MediumWidth = 40;
+        public const int MediumHeight = 40;
+        public const int MediumLength = 40;
 
-        public static int LargeWidth = 200;
-        public static int LargeHeight = 200;
-        public static int LargeLength = 200;
+        public const int LargeWidth = 200;
+        public const int LargeHeight = 200;
+        public const int LargeLength = 200;
 
-        public static int LightWeigth = 1;
-        public static int MediumWeight = 5;
-        public static int HeavyWeight = 20;
+        public const int LightWeight = 1;
+        public const int MediumWeight = 5;
+        public const int HeavyWeight = 20;
 
-        public static float PriceSmallLight = 40.0f;
-        public static float PriceSmallMedium = 60.0f;
-        public static float PriceSmallHeavy = 80.0f;
+        public const float PriceSmallLight = 40.0f;
+        public const float PriceSmallMedium = 60.0f;
+        public const float PriceSmallHeavy = 80.0f;
 
-        public static float PriceMediumLight = 48.0f;
-        public static float PriceMediumMedium = 68.0f;
-        public static float PriceMediumHeavy = 88.0f;
+        public const float PriceMediumLight = 48.0f;
+        public const float PriceMediumMedium = 68.0f;
+        public const float PriceMediumHeavy = 88.0f;
 
-        public static float PriceLargeLight = 80.0f;
-        public static float PriceLargeMedium = 100.0f;
-        public static float PriceLargeHeavy = 120.0f;
+        public const float PriceLargeLight = 80.0f;
+        public const float PriceLargeMedium = 100.0f;
+        public const float PriceLargeHeavy = 120.0f;
 
-        public static float FlightDuration = 8.0f;
+        public const float FlightDuration = 8.0f;
+
+        public const string PackageInvalidWeightMessage = "Package weight not supported";
+        public const string PackageInvalidSizeMessage = "Package size not supported";
+        public const string PackageInvalidTypeMessage = "Package type not supported";
+        public const string InvalidConnectionTypeMessage = "The connection is not supported";
     }
 }

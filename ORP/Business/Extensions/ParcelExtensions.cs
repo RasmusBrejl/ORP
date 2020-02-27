@@ -9,7 +9,7 @@ namespace ORP.Business.Extensions
 		{
 			if (parcel.Weight < 0) return ParcelWeightType.Invalid;
 
-			if (parcel.Weight < Settings.LightWeigth) return ParcelWeightType.Light;
+			if (parcel.Weight < Settings.LightWeight) return ParcelWeightType.Light;
 
 			if (parcel.Weight < Settings.MediumWeight) return ParcelWeightType.Medium;
 

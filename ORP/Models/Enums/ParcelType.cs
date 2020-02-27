@@ -6,6 +6,7 @@
 		Weapons,
 		LiveAnimals,
 		CautiousParcels,
-		RefrigeratedGoods
+		RefrigeratedGoods,
+		Recommended
 	}
 }

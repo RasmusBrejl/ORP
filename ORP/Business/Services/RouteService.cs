@@ -1,4 +1,5 @@
-﻿using ORP.Business.Extensions;
+﻿using System.Linq;
+using ORP.Business.Extensions;
 using ORP.Business.Repositories;
 using ORP.Models;
 using ORP.Models.Enums;
@@ -30,7 +31,7 @@ namespace ORP.Business.Services
 
 			if (parcelSizeType == ParcelSizeType.Invalid)
 			{
-				errorMessage = "Package dimensions not supported";
+				errorMessage = Settings.PackageInvalidSizeMessage;
 				return null;
 			}
 
@@ -38,7 +39,7 @@ namespace ORP.Business.Services
 
 			if (parcelWeightType == ParcelWeightType.Invalid)
 			{
-				errorMessage = "Package weight not supported";
+				errorMessage = Settings.PackageInvalidWeightMessage;
 				return null;
 			}
 

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace ORP.Models.Enums
+﻿namespace ORP.Models.Enums
 {
 	public enum ParcelWeightType
 	{
