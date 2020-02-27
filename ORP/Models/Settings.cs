@@ -1,8 +1,11 @@
-﻿namespace ORP.Models
+﻿using System.Collections.Generic;
+using ORP.Models.Enums;
+
+namespace ORP.Models
 {
     public static class Settings
     {
-	    public const int SmallWidth = 25;
+        public const int SmallWidth = 25;
         public const int SmallHeight = 25;
         public const int SmallLength = 25;
 
@@ -29,6 +32,14 @@
         public const float PriceLargeLight = 80.0f;
         public const float PriceLargeMedium = 100.0f;
         public const float PriceLargeHeavy = 120.0f;
+
+        public const float PriceModifierWeapons = 1.00f;
+        public const float PriceModifierCautious = 0.75f;
+        public const float PriceModifierRefrigerated = 0.10f;
+
+        public static readonly ParcelType[] InvalidParcelTypes = {
+            ParcelType.Recommended, ParcelType.LiveAnimals
+        };
 
         public const float FlightDuration = 8.0f;
 
