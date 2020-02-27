@@ -127,6 +127,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Business\Repositories\OrderRepository.cs" />
     <Compile Include="Business\Repositories\UserRepository.cs" />
     <Compile Include="Business\Services\OrderService.cs" />
     <Compile Include="Business\Services\UserService.cs" />
@@ -177,7 +178,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Frontend\.gitignore" />
     <Content Include="Frontend\e2e\protractor.conf.js" />
     <Content Include="Frontend\node_modules\%40angular-devkit\architect\src\architect.js" />
     <Content Include="Frontend\node_modules\%40angular-devkit\architect\src\builders-schema.js" />
