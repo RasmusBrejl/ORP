@@ -127,11 +127,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Business\Repositories\UserRepository.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\BubberController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002271320082_Added remaining entities.cs" />
+    <Compile Include="Migrations\202002271320082_Added remaining entities.designer.cs">
+      <DependentUpon>202002271320082_Added remaining entities.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\City.cs" />
@@ -213,6 +218,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202002271206129_added users.resx">
       <DependentUpon>202002271206129_added users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002271320082_Added remaining entities.resx">
+      <DependentUpon>202002271320082_Added remaining entities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

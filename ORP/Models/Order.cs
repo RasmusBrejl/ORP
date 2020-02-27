@@ -12,6 +12,5 @@ namespace ORP.Models
 		public float Duration { get; set; }
 		public DateTime OrderTime { get; set; }
 		public Parcel Parcel { get; set; }
-		public User User { get; set; }
-	}
+    }
 }

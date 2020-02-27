@@ -9,9 +9,6 @@ namespace ORP
 {
     public class TestRepository
     {
-        private string connectionString =
-            "Data Source=dbs-oapl.database.windows.net;Initial Catalog=db-prod;User ID=dbs-oapl;Password=oceanicFlyAway16";
-
         public bool AddUser()
         {
             using (var context = new OrpContext())
