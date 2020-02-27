@@ -165,6 +165,7 @@
     </Compile>
     <Compile Include="Models\Enums\ParcelSizeType.cs" />
     <Compile Include="Models\Enums\ParcelWeightType.cs" />
+    <Compile Include="Models\Enums\RoutePriorityType.cs" />
     <Compile Include="Models\GraphNode.cs" />
     <Compile Include="Models\RequestRouteObject.cs" />
     <Compile Include="Models\Settings.cs" />
