@@ -128,11 +128,28 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Settings.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Connection.cs" />
+    <Compile Include="Models\Enums\ConnectionType.cs" />
+    <Compile Include="Models\Enums\ParcelType.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Parcel.cs" />
+    <Compile Include="Models\ParcelCategory.cs" />
+    <Compile Include="Migrations\202002271206129_added users.cs" />
+    <Compile Include="Migrations\202002271206129_added users.designer.cs">
+      <DependentUpon>202002271206129_added users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Clearance.cs" />
+    <Compile Include="Models\Context\OrpContext.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -189,6 +206,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202002271206129_added users.resx">
+      <DependentUpon>202002271206129_added users.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
