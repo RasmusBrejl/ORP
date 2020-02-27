@@ -1,10 +1,21 @@
-﻿using ORP.Business.Repositories;
+﻿using System;
+using System.Threading.Tasks;
+using ORP.Business.Repositories;
 using System.Web.Mvc;
+using ORP.Buisness.Services;
+using ORP.Models;
 
 namespace ORP.Controllers
 {
     public class UserController : Controller
     {
+        private readonly UserService _userService;
+
+        public UserController()
+        {
+            _userService = new UserService(new UserRepository());
+        }
+
         [HttpGet]
         public bool CreateUser()
         {
@@ -13,11 +24,15 @@ namespace ORP.Controllers
             return true;
         }
 
-        public ActionResult Login()
+        [HttpGet]
+        public async Task<ActionResult> GetUser(string username, string password)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var user = new User
+            {
+                Name = username,
+                Password = password
+            };
+            return Json(user, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -6,6 +6,6 @@ namespace ORP.Models
 	{
 		public float Duration { get; set; }
 		public float Price { get; set; }
-		public DateTime Date { get; set; }
+		public string Date { get; set; }
 	}
 }
