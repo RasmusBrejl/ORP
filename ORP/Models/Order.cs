@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ORP.Model;
+using System;
 
 namespace ORP.Models
 {
@@ -11,6 +12,6 @@ namespace ORP.Models
 		public float Duration { get; set; }
 		public DateTime OrderTime { get; set; }
 		public Parcel Parcel { get; set; }
-		// TODO: Add User property
+		public User User { get; set; }
 	}
 }
