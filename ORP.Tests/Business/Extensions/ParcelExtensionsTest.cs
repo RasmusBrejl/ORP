@@ -6,7 +6,7 @@ using ORP.Models.Enums;
 namespace ORP.Tests.Business.Extensions
 {
 	[TestClass]
-	public class ParcialExtensionsTest
+	public class ParcelExtensionsTest
 	{
 		[TestMethod]
 		public void GetWeightType_GivenNegativeWeight_ReturnsInvalidParcelWeightType()
