@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORP", "ORP\ORP.csproj", "{C0692006-BA28-4DF2-BC50-2A9D5B94C29D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORP.Tests", "ORP.Tests\ORP.Tests.csproj", "{A76D8A52-F890-4D2A-86A4-69745D47E76B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0692006-BA28-4DF2-BC50-2A9D5B94C29D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0692006-BA28-4DF2-BC50-2A9D5B94C29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0692006-BA28-4DF2-BC50-2A9D5B94C29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0692006-BA28-4DF2-BC50-2A9D5B94C29D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A76D8A52-F890-4D2A-86A4-69745D47E76B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A76D8A52-F890-4D2A-86A4-69745D47E76B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A76D8A52-F890-4D2A-86A4-69745D47E76B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A76D8A52-F890-4D2A-86A4-69745D47E76B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2D2A84B-6A28-4289-A3E6-9788380148C6}
+	EndGlobalSection
+EndGlobal
