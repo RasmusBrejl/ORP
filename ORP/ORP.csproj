@@ -131,8 +131,10 @@
     <Compile Include="Business\Repositories\UserRepository.cs" />
     <Compile Include="Business\Services\OrderService.cs" />
     <Compile Include="Business\Services\UserService.cs" />
+    <Compile Include="Business\Extensions\ParcelExtensions.cs" />
     <Compile Include="Business\Repositories\CityRepository.cs" />
     <Compile Include="Business\Repositories\ConnectionRepository.cs" />
+    <Compile Include="Business\Services\RouteService.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\BubberController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -147,6 +149,9 @@
     <Compile Include="Migrations\202002271505037_Altered city.designer.cs">
       <DependentUpon>202002271505037_Altered city.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Enums\ParcelSizeType.cs" />
+    <Compile Include="Models\Enums\ParcelWeightType.cs" />
+    <Compile Include="Models\RequestRouteObject.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Connection.cs" />
