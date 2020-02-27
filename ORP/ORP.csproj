@@ -131,6 +131,7 @@
     <Compile Include="Business\Repositories\UserRepository.cs" />
     <Compile Include="Business\Services\OrderService.cs" />
     <Compile Include="Business\Services\UserService.cs" />
+    <Compile Include="Business\Repositories\ConnectionRepository.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\BubberController.cs" />
     <Compile Include="Controllers\UserController.cs" />
