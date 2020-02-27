@@ -15,5 +15,12 @@ namespace ORP.Controllers
             repo.AddUser();
             return true;
         }
+
+        public ActionResult Login()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
     }
 }
