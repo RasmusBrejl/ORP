@@ -27,6 +27,13 @@ namespace ORP.Business.Services
 
 		public ConnectionData GetConnectionData(Parcel parcel, out string errorMessage)
 		{
+			var parcelTypes = parcel.ParcelCategories.Select(c => c.ParcelType).ToList();
+			if (parcelTypes.Contains(ParcelType.LiveAnimals) || parcelTypes.Contains(ParcelType.Recommended))
+			{
+				errorMessage = Settings.PackageInvalidTypeMessage;
+				return null;
+			}
+
 			var parcelSizeType = parcel.GetSizeType();
 
 			if (parcelSizeType == ParcelSizeType.Invalid)
@@ -43,41 +50,47 @@ namespace ORP.Business.Services
 				return null;
 			}
 
-			float price;
+			float basePrice;
 
 			if (parcelSizeType == ParcelSizeType.Small)
 			{
 				if (parcelWeightType == ParcelWeightType.Light)
-					price = Settings.PriceSmallLight;
+					basePrice = Settings.PriceSmallLight;
 				else if (parcelWeightType == ParcelWeightType.Medium)
-					price = Settings.PriceSmallMedium;
+					basePrice = Settings.PriceSmallMedium;
 				else
-					price = Settings.PriceSmallHeavy;
+					basePrice = Settings.PriceSmallHeavy;
 			}
 			else if (parcelSizeType == ParcelSizeType.Medium)
 			{
 				if (parcelWeightType == ParcelWeightType.Light)
-					price = Settings.PriceMediumLight;
+					basePrice = Settings.PriceMediumLight;
 				else if (parcelWeightType == ParcelWeightType.Medium)
-					price = Settings.PriceMediumMedium;
+					basePrice = Settings.PriceMediumMedium;
 				else
-					price = Settings.PriceMediumHeavy;
+					basePrice = Settings.PriceMediumHeavy;
 			}
 			else
 			{
 				if (parcelWeightType == ParcelWeightType.Light)
-					price = Settings.PriceLargeLight;
+					basePrice = Settings.PriceLargeLight;
 				else if (parcelWeightType == ParcelWeightType.Medium)
-					price = Settings.PriceLargeMedium;
+					basePrice = Settings.PriceLargeMedium;
 				else
-					price = Settings.PriceLargeHeavy;
+					basePrice = Settings.PriceLargeHeavy;
+			}
+
+			var totalPrice = basePrice;
+			foreach (var parcelCategory in parcel.ParcelCategories)
+			{
+				totalPrice += basePrice * parcelCategory.PriceModifier;
 			}
 
 			errorMessage = "";
 			return new ConnectionData()
 			{
 				Duration = Settings.FlightDuration,
-				Price = price
+				Price = totalPrice
 			};
 		}
 	}

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ORP.Business;
 using ORP.Business.Extensions;
 using ORP.Models;
 using ORP.Models.Enums;
@@ -6,7 +7,7 @@ using ORP.Models.Enums;
 namespace ORP.Tests.Business.Extensions
 {
 	[TestClass]
-	public class ParcialExtensionsTest
+	public class ParcelExtensionsTest
 	{
 		[TestMethod]
 		public void GetWeightType_GivenNegativeWeight_ReturnsInvalidParcelWeightType()

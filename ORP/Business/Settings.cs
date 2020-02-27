@@ -1,4 +1,4 @@
-﻿namespace ORP.Models
+﻿namespace ORP.Business
 {
     public static class Settings
     {
