@@ -6,6 +6,7 @@ namespace ORP.Business.Repositories
 {
 	public class CityRepository
 	{
+
 		public City GetCity(string cityName)
 		{
             using (var context = new OrpContext())

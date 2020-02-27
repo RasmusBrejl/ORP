@@ -5,26 +5,36 @@ namespace ORP.Models
 	public class RequestRouteObject
 	{
 		[JsonProperty("city_from")]
-		public string CityFrom { get; set; }
+		public string city_from { get; set; }
+
 		[JsonProperty("city_to")]
-		public string CityTo { get; set; }
+		public string city_to { get; set; }
+
 		[JsonProperty("weight")]
-		public float Weight { get; set; }
+		public float weight { get; set; }
+
 		[JsonProperty("width")]
-		public float Width { get; set; }
+		public float width { get; set; }
+
 		[JsonProperty("height")]
-		public float Height { get; set; }
+		public float height { get; set; }
+
 		[JsonProperty("length")]
-		public float Length { get; set; }
+		public float length { get; set; }
+
 		[JsonProperty("cold")]
-		public bool Cold { get; set; }
+		public bool cold { get; set; }
+
 		[JsonProperty("fragile")]
-		public bool Fragile { get; set; }
+		public bool fragile { get; set; }
+
 		[JsonProperty("animals")]
-		public bool Animals { get; set; }
+		public bool animals { get; set; }
+
 		[JsonProperty("weapons")]
-		public bool Weapons { get; set; }
+		public bool weapons { get; set; }
+
 		[JsonProperty("recommended_delivery")]
-		public bool RecordedDelivery { get; set; }
+		public bool recommended_delivery { get; set; }
 	}
 }

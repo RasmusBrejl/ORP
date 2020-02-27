@@ -9,7 +9,7 @@
         {
             DropForeignKey("dbo.ParcelCategories", "Parcel_ParcelId", "dbo.Parcels");
             DropIndex("dbo.ParcelCategories", new[] { "Parcel_ParcelId" });
-            AddColumn("dbo.Parcels", "Length", c => c.Single(nullable: false));
+            AddColumn("dbo.Parcels", "length", c => c.Single(nullable: false));
             DropColumn("dbo.Parcels", "Depth");
             DropTable("dbo.ParcelCategories");
         }
@@ -28,7 +28,7 @@
                 .PrimaryKey(t => t.ParcelCategoryId);
             
             AddColumn("dbo.Parcels", "Depth", c => c.Single(nullable: false));
-            DropColumn("dbo.Parcels", "Length");
+            DropColumn("dbo.Parcels", "length");
             CreateIndex("dbo.ParcelCategories", "Parcel_ParcelId");
             AddForeignKey("dbo.ParcelCategories", "Parcel_ParcelId", "dbo.Parcels", "ParcelId");
         }
