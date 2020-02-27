@@ -1,4 +1,6 @@
-﻿using ORP.Models;
+﻿using System.Linq;
+using ORP.Model;
+using ORP.Models;
 
 namespace ORP.Business.Repositories
 {
@@ -6,8 +8,10 @@ namespace ORP.Business.Repositories
 	{
 		public City GetCity(string cityName)
 		{
-			// TODO: Get a city from the database
-			return new City();
+            using (var context = new OrpContext())
+            {
+                return context.Cities.FirstOrDefault(x => x.Name == cityName);
+            }
 		}
 	}
 }
