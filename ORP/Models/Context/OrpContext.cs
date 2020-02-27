@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
-using ORP.Models;
+﻿using System.Data.Entity;
 
-namespace ORP.Model
+namespace ORP.Models.Context
 {
     public class OrpContext : DbContext
     {
@@ -20,9 +15,5 @@ namespace ORP.Model
         public DbSet<Order> Orders { get; set; }
 
         public DbSet<Parcel> Parcels { get; set; }
-
-        public DbSet<ParcelCategory> ParcelCategories { get; set; }
-
-
     }
 }

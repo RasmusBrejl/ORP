@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ORP.Models.Enums;
 
 namespace ORP.Models
 {
@@ -9,6 +10,6 @@ namespace ORP.Models
 		public float Width { get; set; }
 		public float Height { get; set; }
 		public float Length { get; set; }
-		public List<ParcelCategory> ParcelCategories { get; set; }
+		public List<ParcelType> ParcelTypes { get; set; }
 	}
 }
