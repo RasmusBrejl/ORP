@@ -1,8 +1,12 @@
-﻿using System.Linq;
-using ORP.Business.Extensions;
+﻿using ORP.Business.Extensions;
 using ORP.Business.Repositories;
 using ORP.Models;
 using ORP.Models.Enums;
+using System;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
 namespace ORP.Business.Services
 {
@@ -10,6 +14,7 @@ namespace ORP.Business.Services
 	{
 		private readonly ConnectionRepository _connectionRepository;
 		private readonly CityRepository _cityRepository;
+		private static HttpClient client = new HttpClient();
 
 		public RouteService(ConnectionRepository connectionRepository, CityRepository cityRepository)
 		{
@@ -27,6 +32,16 @@ namespace ORP.Business.Services
 
 		public ConnectionData GetConnectionData(Parcel parcel, out string errorMessage)
 		{
+			if (parcel.ParcelTypes != null)
+			{
+				var parcelTypes = parcel.ParcelTypes;
+				if (parcelTypes.Any(Settings.InvalidParcelTypes.Contains))
+				{
+					errorMessage = Settings.PackageInvalidTypeMessage;
+					return null;
+				}
+			}
+
 			var parcelSizeType = parcel.GetSizeType();
 
 			if (parcelSizeType == ParcelSizeType.Invalid)
@@ -43,42 +58,65 @@ namespace ORP.Business.Services
 				return null;
 			}
 
-			float price;
+			float basePrice;
 
 			if (parcelSizeType == ParcelSizeType.Small)
 			{
 				if (parcelWeightType == ParcelWeightType.Light)
-					price = Settings.PriceSmallLight;
+					basePrice = Settings.PriceSmallLight;
 				else if (parcelWeightType == ParcelWeightType.Medium)
-					price = Settings.PriceSmallMedium;
+					basePrice = Settings.PriceSmallMedium;
 				else
-					price = Settings.PriceSmallHeavy;
+					basePrice = Settings.PriceSmallHeavy;
 			}
 			else if (parcelSizeType == ParcelSizeType.Medium)
 			{
 				if (parcelWeightType == ParcelWeightType.Light)
-					price = Settings.PriceMediumLight;
+					basePrice = Settings.PriceMediumLight;
 				else if (parcelWeightType == ParcelWeightType.Medium)
-					price = Settings.PriceMediumMedium;
+					basePrice = Settings.PriceMediumMedium;
 				else
-					price = Settings.PriceMediumHeavy;
+					basePrice = Settings.PriceMediumHeavy;
 			}
 			else
 			{
 				if (parcelWeightType == ParcelWeightType.Light)
-					price = Settings.PriceLargeLight;
+					basePrice = Settings.PriceLargeLight;
 				else if (parcelWeightType == ParcelWeightType.Medium)
-					price = Settings.PriceLargeMedium;
+					basePrice = Settings.PriceLargeMedium;
 				else
-					price = Settings.PriceLargeHeavy;
+					basePrice = Settings.PriceLargeHeavy;
 			}
 
-			errorMessage = "";
+			var totalPrice = basePrice;
+			if (parcel.ParcelTypes != null)
+			{
+				totalPrice += parcel.ParcelTypes.Sum(parcelCategory => basePrice * parcelCategory.ToPriceModifier());
+			}
+
+			errorMessage = string.Empty;
 			return new ConnectionData()
 			{
 				Duration = Settings.FlightDuration,
-				Price = price
+				Price = totalPrice
 			};
+		}
+
+		// Sent request
+		public async Task<ConnectionData> GetConnectionDataFromRouteRequest(string url) 
+		{
+			ConnectionData connectionData = null;
+			client.BaseAddress = new Uri("base");
+			client.DefaultRequestHeaders.Accept.Clear();
+			client.DefaultRequestHeaders.Accept.Add(
+				new MediaTypeWithQualityHeaderValue("application/json"));
+
+			HttpResponseMessage response = await client.GetAsync(url);
+			if (response.IsSuccessStatusCode)
+			{
+				connectionData = await response.Content.ReadAsAsync<ConnectionData>();
+			}
+			return connectionData;
 		}
 	}
 }

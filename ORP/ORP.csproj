@@ -56,12 +56,19 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -127,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Business\Extensions\ParcelTypeExtensions.cs" />
     <Compile Include="Business\Repositories\OrderRepository.cs" />
     <Compile Include="Business\Repositories\UserRepository.cs" />
     <Compile Include="Business\Services\OrderService.cs" />
@@ -137,6 +145,7 @@
     <Compile Include="Business\Services\RouteService.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\BubberController.cs" />
+    <Compile Include="Controllers\RequestRouteController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -149,6 +158,10 @@
     <Compile Include="Migrations\202002271505037_Altered city.designer.cs">
       <DependentUpon>202002271505037_Altered city.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002271818119_Removed ParcelCategory from solution.cs" />
+    <Compile Include="Migrations\202002271818119_Removed ParcelCategory from solution.designer.cs">
+      <DependentUpon>202002271818119_Removed ParcelCategory from solution.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Enums\ParcelSizeType.cs" />
     <Compile Include="Models\Enums\ParcelWeightType.cs" />
     <Compile Include="Models\RequestRouteObject.cs" />
@@ -160,7 +173,6 @@
     <Compile Include="Models\Enums\ParcelType.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Parcel.cs" />
-    <Compile Include="Models\ParcelCategory.cs" />
     <Compile Include="Migrations\202002271206129_added users.cs" />
     <Compile Include="Migrations\202002271206129_added users.designer.cs">
       <DependentUpon>202002271206129_added users.cs</DependentUpon>
@@ -242,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002271505037_Altered city.resx">
       <DependentUpon>202002271505037_Altered city.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002271818119_Removed ParcelCategory from solution.resx">
+      <DependentUpon>202002271818119_Removed ParcelCategory from solution.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

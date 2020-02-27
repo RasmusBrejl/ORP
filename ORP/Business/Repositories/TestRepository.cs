@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using ORP.Model;
-using ORP.Models;
+﻿using ORP.Models;
+using ORP.Models.Context;
 
-namespace ORP
+namespace ORP.Business.Repositories
 {
     public class TestRepository
     {

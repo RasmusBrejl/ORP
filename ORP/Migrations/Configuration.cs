@@ -1,18 +1,17 @@
-﻿namespace ORP.Migrations
-{
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+﻿using ORP.Models.Context;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ORP.Model.OrpContext>
+namespace ORP.Migrations
+{
+    using System.Data.Entity.Migrations;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<OrpContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(ORP.Model.OrpContext context)
+        protected override void Seed(OrpContext context)
         {
             //  This method will be called after migrating to the latest version.
 
