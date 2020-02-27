@@ -1,4 +1,6 @@
-﻿using ORP.Models;
+﻿using System.Linq;
+using ORP.Model;
+using ORP.Models;
 
 namespace ORP.Business.Repositories
 {
@@ -6,8 +8,10 @@ namespace ORP.Business.Repositories
 	{
 		public Connection GetConnection(City cityFrom, City cityTo)
 		{
-			// TODO: Get connection from database
-			return new Connection();
+            using (var context = new OrpContext())
+            {
+                return context.Connections.FirstOrDefault(x => x.CityOne == cityFrom && x.CityTwo == cityTo);
+            }
 		}
 	}
 }
