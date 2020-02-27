@@ -47,5 +47,8 @@ namespace ORP.Models
         public const string PackageInvalidSizeMessage = "Package size not supported";
         public const string PackageInvalidTypeMessage = "Package type not supported";
         public const string InvalidConnectionTypeMessage = "The connection is not supported";
+
+        public const string EndpointTelstar = "https://wa-tlpl.azurewebsites.net/RequestRoute";
+        public const string EndpointEastIndia = "https://wa-eitpl.azurewebsites.net/RequestRoute";
     }
 }
