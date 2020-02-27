@@ -8,7 +8,7 @@ namespace ORP.Models
 		public float Weight { get; set; }
 		public float Width { get; set; }
 		public float Height { get; set; }
-		public float Depth { get; set; }
+		public float Length { get; set; }
 		public List<ParcelCategory> ParcelCategories { get; set; }
 	}
 }
