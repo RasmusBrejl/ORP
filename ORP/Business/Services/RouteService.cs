@@ -1,4 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Security.Policy;
+using System.Threading.Tasks;
 using ORP.Business.Extensions;
 using ORP.Business.Repositories;
 using ORP.Models;
@@ -10,6 +16,7 @@ namespace ORP.Business.Services
 	{
 		private readonly ConnectionRepository _connectionRepository;
 		private readonly CityRepository _cityRepository;
+		private static HttpClient client = new HttpClient();
 
 		public RouteService(ConnectionRepository connectionRepository, CityRepository cityRepository)
 		{
@@ -79,6 +86,23 @@ namespace ORP.Business.Services
 				Duration = Settings.FlightDuration,
 				Price = price
 			};
+		}
+
+		// Sent request
+		public async Task<ConnectionData> GetConnectionDataFromRouteRequest(string url) 
+		{
+			ConnectionData connectionData = null;
+			client.BaseAddress = new Uri("base");
+			client.DefaultRequestHeaders.Accept.Clear();
+			client.DefaultRequestHeaders.Accept.Add(
+				new MediaTypeWithQualityHeaderValue("application/json"));
+
+			HttpResponseMessage response = await client.GetAsync(url);
+			if (response.IsSuccessStatusCode)
+			{
+				connectionData = await response.Content.ReadAsAsync<ConnectionData>();
+			}
+			return connectionData;
 		}
 	}
 }
