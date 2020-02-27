@@ -17,12 +17,9 @@ namespace ORP.Tests.Business.Services
 			var routeService = new RouteService(new ConnectionRepository(), new CityRepository());
 			var parcel = new Parcel()
 			{
-				ParcelCategories = new List<ParcelCategory>()
+				ParcelTypes = new List<ParcelType>()
 				{
-					new ParcelCategory()
-					{
-						ParcelType = ParcelType.LiveAnimals
-					}
+					ParcelType.LiveAnimals
 				}
 			};
 
@@ -264,11 +261,6 @@ namespace ORP.Tests.Business.Services
 		{
 			// Arrange
 			var routeService = new RouteService(new ConnectionRepository(), new CityRepository());
-			var parcelCategory = new ParcelCategory()
-			{
-				ParcelType = ParcelType.Weapons,
-				PriceModifier = 1
-			};
 
 			var width = Settings.SmallWidth;
 			var height = Settings.SmallHeight;
@@ -280,15 +272,15 @@ namespace ORP.Tests.Business.Services
 				Height = height,
 				Length = length,
 				Weight = weight,
-				ParcelCategories = new List<ParcelCategory>()
+				ParcelTypes = new List<ParcelType>()
 				{
-					parcelCategory
+					ParcelType.Weapons
 				}
 			};
 
 			// Act
 			var result = routeService.GetConnectionData(parcel, out string errorMessage);
-			var totalModifier = 2;
+			var totalModifier = 1 + Settings.PriceModifierWeapons;
 
 			// Assert
 			Assert.AreEqual(Settings.PriceSmallLight * totalModifier, result.Price);

@@ -71,7 +71,7 @@
                 .PrimaryKey(t => t.ParcelId);
             
             CreateTable(
-                "dbo.ParcelCategories",
+                "dbo.ParcelTypes",
                 c => new
                     {
                         ParcelCategoryId = c.Int(nullable: false, identity: true),
@@ -89,13 +89,13 @@
         {
             DropForeignKey("dbo.Orders", "User_UserId", "dbo.Users");
             DropForeignKey("dbo.Orders", "Parcel_ParcelId", "dbo.Parcels");
-            DropForeignKey("dbo.ParcelCategories", "Parcel_ParcelId", "dbo.Parcels");
+            DropForeignKey("dbo.ParcelTypes", "Parcel_ParcelId", "dbo.Parcels");
             DropForeignKey("dbo.Orders", "CityTo_CityId", "dbo.Cities");
             DropForeignKey("dbo.Orders", "CityFrom_CityId", "dbo.Cities");
             DropForeignKey("dbo.Connections", "City_CityId", "dbo.Cities");
             DropForeignKey("dbo.Connections", "CityTwo_CityId", "dbo.Cities");
             DropForeignKey("dbo.Connections", "CityOne_CityId", "dbo.Cities");
-            DropIndex("dbo.ParcelCategories", new[] { "Parcel_ParcelId" });
+            DropIndex("dbo.ParcelTypes", new[] { "Parcel_ParcelId" });
             DropIndex("dbo.Orders", new[] { "User_UserId" });
             DropIndex("dbo.Orders", new[] { "Parcel_ParcelId" });
             DropIndex("dbo.Orders", new[] { "CityTo_CityId" });
@@ -103,7 +103,7 @@
             DropIndex("dbo.Connections", new[] { "City_CityId" });
             DropIndex("dbo.Connections", new[] { "CityTwo_CityId" });
             DropIndex("dbo.Connections", new[] { "CityOne_CityId" });
-            DropTable("dbo.ParcelCategories");
+            DropTable("dbo.ParcelTypes");
             DropTable("dbo.Parcels");
             DropTable("dbo.Orders");
             DropTable("dbo.Connections");

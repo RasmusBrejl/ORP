@@ -32,11 +32,10 @@ namespace ORP.Business.Services
 
 		public ConnectionData GetConnectionData(Parcel parcel, out string errorMessage)
 		{
-			if (parcel.ParcelCategories != null)
+			if (parcel.ParcelTypes != null)
 			{
-				var parcelTypes = parcel.ParcelCategories.Select(c => c.ParcelType).ToList();
-				if (parcelTypes.Contains(ParcelType.LiveAnimals) ||
-				    parcelTypes.Contains(ParcelType.Recommended))
+				var parcelTypes = parcel.ParcelTypes;
+				if (parcelTypes.Any(Settings.InvalidParcelTypes.Contains))
 				{
 					errorMessage = Settings.PackageInvalidTypeMessage;
 					return null;
@@ -90,9 +89,9 @@ namespace ORP.Business.Services
 			}
 
 			var totalPrice = basePrice;
-			if (parcel.ParcelCategories != null)
+			if (parcel.ParcelTypes != null)
 			{
-				totalPrice += parcel.ParcelCategories.Sum(parcelCategory => basePrice * parcelCategory.PriceModifier);
+				totalPrice += parcel.ParcelTypes.Sum(parcelCategory => basePrice * parcelCategory.ToPriceModifier());
 			}
 
 			errorMessage = string.Empty;

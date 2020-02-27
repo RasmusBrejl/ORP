@@ -1,6 +1,7 @@
-﻿using ORP.Models;
+﻿using ORP.Business.Repositories;
+using ORP.Models;
 
-namespace ORP.Buisness.Services
+namespace ORP.Business.Services
 {
     public class OrderService
     {
