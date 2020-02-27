@@ -144,9 +144,9 @@
       <DependentUpon>202002271206129_added users.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\Clearance.cs" />
-    <Compile Include="Model\OrpContext.cs" />
-    <Compile Include="Model\User.cs" />
+    <Compile Include="Models\Clearance.cs" />
+    <Compile Include="Models\Context\OrpContext.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestRepository.cs" />
   </ItemGroup>
