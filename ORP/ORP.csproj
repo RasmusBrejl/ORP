@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Business\Extensions\ConnectionDataExtensions.cs" />
     <Compile Include="Business\Extensions\ParcelTypeExtensions.cs" />
     <Compile Include="Business\Repositories\OrderRepository.cs" />
     <Compile Include="Business\Repositories\UserRepository.cs" />
@@ -164,6 +165,7 @@
     </Compile>
     <Compile Include="Models\Enums\ParcelSizeType.cs" />
     <Compile Include="Models\Enums\ParcelWeightType.cs" />
+    <Compile Include="Models\GraphNode.cs" />
     <Compile Include="Models\RequestRouteObject.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\City.cs" />

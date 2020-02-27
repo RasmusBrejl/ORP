@@ -3,6 +3,7 @@ using ORP.Business.Repositories;
 using ORP.Models;
 using ORP.Models.Enums;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -28,6 +29,29 @@ namespace ORP.Business.Services
 			var cityTo = _cityRepository.GetCity(cityToName);
 
 			return _connectionRepository.GetConnection(cityFrom, cityTo);
+		}
+
+		public List<Connection> GetConnectionsForCity(City city)
+		{
+			return _connectionRepository.GetConnections(city);
+		}
+
+		public ConnectionData GetConnectionDataBoat(Parcel parcel)
+		{
+			return new ConnectionData()
+			{
+				Duration = 20f,
+				Price = 10f
+			};
+		}
+
+		public ConnectionData GetConnectionDataCar(Parcel parcel)
+		{
+			return new ConnectionData()
+			{
+				Duration = 10f,
+				Price = 20f
+			};
 		}
 
 		public ConnectionData GetConnectionData(Parcel parcel, out string errorMessage)
