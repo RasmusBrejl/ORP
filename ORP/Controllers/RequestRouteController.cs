@@ -1,14 +1,9 @@
 ﻿using ORP.Business.Services;
 using ORP.Models;
 using ORP.Models.Enums;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Web;
-using System.Web.Http;
 using System.Web.Mvc;
+using System.Web.Http;
 
 namespace ORP.Controllers
 {
@@ -22,9 +17,9 @@ namespace ORP.Controllers
         }
 
         // Respond request
-        [System.Web.Http.Route("/api/RequestRoute")]
-        [System.Web.Http.HttpGet]
-        public ConnectionData GetConnectionData([FromBody] RequestRouteObject Request)
+        [System.Web.Mvc.Route("/api/RequestRoute")]
+        [System.Web.Mvc.HttpGet]
+        public ConnectionData GetConnectionData([FromBody] RequestRouteObject request)
         {
             /*
              * Veify object
@@ -32,12 +27,12 @@ namespace ORP.Controllers
              * 
              */
 
-            if (Request is null)
+            if (request is null)
             {
                 throw new HttpResponseException(new HttpResponseMessage(System.Net.HttpStatusCode.BadRequest));
             }
 
-            Connection RouteConnection = _routeService.GetConnection(Request.CityFrom, Request.CityTo);
+            Connection RouteConnection = _routeService.GetConnection(request.CityFrom, request.CityTo);
             if (RouteConnection == null)
             {
                 return null;
@@ -49,10 +44,10 @@ namespace ORP.Controllers
 
                 var data = _routeService.GetConnectionData(new Parcel
                 {
-                    Weight = Request.Weight,
-                    Width = Request.Width,
-                    Height = Request.Height,
-                    Length = Request.Length
+                    Weight = request.Weight,
+                    Width = request.Width,
+                    Height = request.Height,
+                    Length = request.Length
 
                 }, out var msg);
                 return data;
